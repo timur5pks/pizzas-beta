@@ -1,0 +1,159 @@
+@keyframes change-background-color {
+  from {
+    background-color: rgba($color: #000, $alpha: 0);
+  }
+  to {
+    background-color: rgba($color: #000, $alpha: 0.4);
+  }
+}
+@keyframes open-popup {
+  from {
+    transform: scale3d(0, 0, 0);
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #000, $alpha: 0.4);
+  animation: change-background-color 0.15s linear;
+  .form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    animation: open-popup /* 0.16s */ 0.3s cubic-bezier(0.48, 0.19, 0.14, 1.01);
+    @media (max-width: 530px) {
+      max-width: 300px;
+      padding: 15px;
+    }
+    .image {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 5px;
+    }
+    .pizzaName {
+      font-size: 24px;
+      margin: 0 0 16px;
+      text-align: center;
+    }
+    .sizesList {
+      display: flex;
+      list-style: none;
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 6px;
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      li {
+        flex: 1 1;
+      }
+      .size {
+        display: block;
+        padding: 6px 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 16px;
+        &.active {
+          background-color: #fff;
+        }
+        @media (max-width: 530px) {
+          font-size: 14px;
+        }
+        input {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+          clip: rect(0 0 0 0);
+        }
+      }
+    }
+    .typesList {
+      display: flex;
+      list-style: none;
+      width: 100%;
+      margin-bottom: 14px;
+      padding: 6px;
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      li {
+        flex: 1 1;
+      }
+      .type {
+        display: block;
+        padding: 6px 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 16px;
+        &.active {
+          background-color: #fff;
+        }
+        @media (max-width: 530px) {
+          font-size: 14px;
+        }
+        input {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+          clip: rect(0 0 0 0);
+        }
+      }
+    }
+    .addButton {
+      padding: 12px 24px;
+      min-height: 30px;
+      border: none;
+      border-radius: 40px;
+      background-color: #fe5f1e;
+      color: #fff;
+      font-family: 'Nunito';
+      font-size: 16px;
+      font-size: 16px;
+      transition: transform 0.1s linear;
+      &:hover {
+        background-color: #f24701;
+      }
+      &:active {
+        background-color: #e74200;
+        transform: scale(0.95);
+      }
+      @media (max-width: 530px) {
+        font-size: 14px;
+      }
+    }
+    .closeButton {
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      right: -25px;
+      top: -25px;
+      background-color: transparent;
+      background-image: url(../../resources//images/close.svg);
+      background-size: contain;
+      border: none;
+      transition: transform 0.1s linear;
+      &:hover {
+        transform: scale(1.1);
+      }
+      @media (max-width: 530px) {
+        right: 0px;
+        top: -35px;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.content {
+  width: calc(100% - 40px);
+  max-width: 1225px;
+  margin: 0 auto;
+  padding: 40px 0;
+  @media (max-width: 695px) {
+    padding: 20px 0;
+  }
+}
